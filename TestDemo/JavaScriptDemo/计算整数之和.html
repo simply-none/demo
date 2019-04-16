@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>输入一个数：
+    <label>
+        <input type="number" value="100">
+    </label>
+    <button>计算</button>
+</p>
+<p></p>
+<script>
+    document.getElementsByTagName("button")[0].onclick= function () {
+        // querySelector选择满足条件的第一个
+        // 获得value不是style.value,直接是value
+        var getNum = document.querySelector("input").value;
+        var sum = 0;
+        for (var i = 0; i <= getNum; i++) {
+            sum += i;
+        }
+        var inputSum = document.getElementsByTagName("p")[1];
+        inputSum.innerText = getNum + "之内的数之和为" + sum + ",阶乘之和为：" + multiNum(getNum);
+        // 计算阶乘
+        function multiNum(getNum) {
+            var multiSum = 0;
+
+
+            // 嵌套函数：闭包
+
+
+            // 计算平方
+            function acquire(i) {
+                return i**2;
+            }
+            for (var i = 1; i <= getNum; i++) {
+                multiSum += acquire(i);
+            }
+            return multiSum;
+        }
+    }
+
+</script>
+</body>
+</html>

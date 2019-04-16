@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p></p>
+<script>
+    // alert(3**3);
+    var str = "水仙花数：";
+    for (var i = 100; i < 10**3; i++) {
+        var hundred = parseInt(i / 100);
+        var ten = parseInt(i / 10) % 10;
+        var signal = parseInt(i % 10);
+        if (i === hundred ** 3 + ten ** 3 + signal ** 3) {
+            str += i;
+            //空格间距调整？？？改进
+            str += "，";
+        }
+    }
+    var inputInfo = document.getElementsByTagName("p")[0];
+    inputInfo.innerHTML = str;
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--只能输入数字-->
+<input type="number" value="">
+<p></p>
+<script>
+
+    // 程序需要改进
+
+    var num = document.getElementsByTagName("input")[0];
+    num.onblur = function () {
+        var inputInfo = document.getElementsByTagName("p")[0];
+        /*先将数字转化为字符串
+        当字符串用parseInt（只会转化为整数）和parseFloat方法时
+        若两者得到的结果相等，说明为整数
+        否则为小数*/
+        var num = document.getElementsByTagName("input")[0].value + "";
+        // alert(num);
+        if (!isNaN(parseFloat(num))) {
+            if (parseInt(num) === parseFloat(num)) {
+                inputInfo.innerHTML = (num + "是一个整数");
+            }
+            else {
+                inputInfo.innerHTML = (num + "是一个小数");
+            }
+        }
+        else {
+            inputInfo.innerHTML = ("warning: is NaN!");
+        }
+    }
+
+</script>
+</body>
+</html>
