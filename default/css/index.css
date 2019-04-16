@@ -1,0 +1,13 @@
+div{
+			height: -webkit-fill-available;
+			background: #e5c5c5;
+		}
+		strong{
+			display: block;
+			float: left;
+			width: 50%;
+			height: inherit;
+		}
+		strong+strong{
+			background: purple;
+		}

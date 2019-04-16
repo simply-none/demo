@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>登录</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+<form action="index.html">
+	<p>
+		<label for="username">用户名：</label>
+		<input type="text" name="username" id="username">
+	</p>
+	<p hidden="hidden">
+		<label for="password">密码：</label>
+		<input type="password" name="password" id="password">
+	</p>
+	<p>
+		<!-- 单位使用百分比 -->
+		<label for="code">验证码：</label>
+		<input type="text" name="code" id="code">
+		<!-- 此处数字字体使用更像验证码的字体 -->
+		<!-- 按钮背景加上一张更像验证码的 -->
+		<!-- 登录注册按钮写在同一个页面上，利用js增加 -->
+		<input type="button" name="random" value="1234">
+	</p>
+	<p>
+		<input type="submit" name="login" id="login">
+	</p>
+	
+</form>
+
+
+
+<script type="text/javascript" src="js/login.js"></script>
+</body>
+</html>
