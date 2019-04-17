@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<input type="text">
+<input type="button" class="click" value="获取">
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<script>
+
+    // 可以用字符串做一个查找文章的所有单词，及出现的位置及个数。
+
+    // 找出字符串中小于某字符的所有字符
+    window.onload = function () {
+        var click = document.querySelector(".click");
+        click.onclick = function () {
+            var getString = document.querySelector("input").value;
+            var inputResult = document.getElementsByTagName("p");
+            var arr = [];
+            for (var i = 0; i < getString.length; i++) {
+                if (getString.charAt(i) < "z") {
+                    arr.push(getString.charAt(i));
+                }
+            }
+            inputResult[0].innerHTML = arr.join(",");
+            // 间隔符
+            inputResult[1].innerHTML = getString.split('').join("#");
+            // 将每个字符用括号括起来
+
+            //对于字母有bugs，汉字可以
+            var getStrArray = getString.split('').join("> <").split('');
+            getStrArray.unshift('<');
+            getStrArray.push('>');
+            inputResult[2].innerHTML = getStrArray.join('');
+            //字符串颠倒 通过array实现
+            inputResult[3].innerHTML = getString.split('').reverse().join('');
+        }
+    }
+</script>
+</body>
+</html>

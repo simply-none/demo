@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<label>
+    <input type="number">
+</label>
+<button value="ui">查看</button>
+<p></p>
+<!--https://blog.csdn.net/Yy921117/article/details/51982159-->
+<!--当js放在head中时，无法获得dom对象-->
+<!--放在head中时，由于浏览器从上往下解析，此时body尚未解析，所以会返回空值，或者使用监听（window.onload等事件）。-->
+<!--放在body中是页面加载完之后执行，比如实现某些部分动态地创建文档。-->
+
+<script>
+    function isLoopYear(number) {
+        var result = document.getElementsByTagName("p")[0];
+        if (number % 4 === 0 && number % 100 !== 0 || number % 400 ===0 ) {
+            result.innerHTML =number + "是闰年";
+        }
+        else {
+            result.innerHTML = number + "是平年";
+        }
+    }
+    var viewResult = document.getElementsByTagName("button")[0];
+    viewResult.onclick = function () {
+        var getYear = document.getElementsByTagName("input")[0].value;
+        isLoopYear(getYear);
+    }
+</script>
+</body>
+</html>
