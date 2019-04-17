@@ -12,9 +12,9 @@ function getValue() {
     var getTd = document.getElementsByTagName("td");
     for (var i = 0; i < getTd.length; i++) {
         getTd[i].onclick = function() {
-            alert(this.innerHTML);
+            document.getElementById("calculate").innerHTML = (this.innerHTML);
         };
     }
-    document.getElementById("calculate").innerHTML = getNumberString;
+
 }
 getValue();
