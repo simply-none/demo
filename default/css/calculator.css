@@ -9,6 +9,7 @@ body{
     width: 620px;
     height: 200px;
     background: #ff8a13;
+    padding-top: 5px;
 }
 td{
     width: 120px;

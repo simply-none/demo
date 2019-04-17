@@ -3,8 +3,45 @@
 	padding: 0;
 }
 form{
+	width: 600px;
+	/*height: 250px;*/
+	background: #ffe4cc;
+	margin: 200px auto;
+	padding-top: 50px;
+}
+
+form>p{
+	padding-left: 17%;
+	padding-top: 20px;
+	height: 36px;
+	line-height: 36px;
+}
+
+form p:last-child{
+	padding: 0;
+}
+#login{
+	width: 20%;
+	margin: 0 40%;
+}
+label{
 	width: 30%;
-	background: #d5acac;
-	margin: 200px 35%;
-	height: inherit;
+}
+input{
+	width: 40%;
+}
+input#username {
+	width: 60%;
+}
+/*消除边距*/
+input#getCode {
+	width: 20%;
+	margin-left: -4px;
+}
+#error{
+	display: none;
+}
+#error.error{
+	display: block;
+	color: #ff1c06;
 }

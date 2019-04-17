@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<title>登录</title>
@@ -9,7 +9,7 @@
 <form action="index.html">
 	<p>
 		<label for="username">用户名：</label>
-		<input type="text" name="username" id="username">
+		<input type="text" name="username" id="username" placeholder="Waster-Qiu" value="Waster-Qiu">
 	</p>
 	<p hidden="hidden">
 		<label for="password">密码：</label>
@@ -22,10 +22,11 @@
 		<!-- 此处数字字体使用更像验证码的字体 -->
 		<!-- 按钮背景加上一张更像验证码的 -->
 		<!-- 登录注册按钮写在同一个页面上，利用js增加 -->
-		<input type="button" name="random" value="1234">
+		<input type="button" name="random" id="getCode">
+		<p id="error">验证失败</p>
 	</p>
 	<p>
-		<input type="submit" name="login" id="login">
+		<input type="submit" name="login" id="login" value="Login">
 	</p>
 	
 </form>
