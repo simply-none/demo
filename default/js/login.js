@@ -40,7 +40,7 @@ inputCode.onblur = function () {
     }
     // 验证成功隐藏提示
     else {
-        error.className = '';
+        error.className = null;
     }
 };
 // 跳转
@@ -48,14 +48,15 @@ var login = document.getElementById("login");
 login.onclick = function () {
     var form = document.getElementsByTagName("form")[0];
 
-    // 有问题
+    // 改进？？？
 
-    if (error.className === "" || error.className !==null || error.className !==undefined) {
-        // alert("error");      test
+    if (inputCode.value === getCode.value) {
         form.action = "index.html";
+        // alert("error");      test
+        // alert(error.className)
     }
     else {
-        form.action = '';
-
+        form.action = "";
+        // alert(typeof error.className)
     }
 };
