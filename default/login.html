@@ -7,38 +7,41 @@
 </head>
 <body>
 <form>
-	<h1>登录到Waster Application</h1>
-	<p>
-		<label for="username">用户名：</label>
-		<input type="text" name="username" id="username" placeholder="Waster-Qiu" value="Waster-Qiu">
-	</p>
-	<p hidden="hidden">
-		<label for="password">密码：</label>
-		<input type="password" name="password" id="password">
-	</p>
-	<div id="codeAside">
-		<!-- 单位使用百分比 -->
-		<label for="code">
-			<span>验证码：</span>
-			<span>密码登录？</span>
-		</label>
-		<input type="text" name="code" id="code">
-		<!-- 此处数字字体使用更像验证码的字体 -->
-		<!-- 按钮背景加上一张更像验证码的 -->
-		<!-- 登录注册按钮写在同一个页面上，利用js增加 -->
-        <div id="getCode">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-		<div id="error">验证失败</div>
-    </div>
+	<h1>Sign in to Waster App</h1>
+	<div id="contentItem">
+		<p>
+			<label for="username">用户名：</label>
+			<input type="text" name="username" id="username" class="blur" placeholder="Waster-Qiu" value="Waster-Qiu">
+			<!--<br />-->
+			<span class="error errorUser">验证失败</span>
+		</p>
+		<p hidden="hidden">
+			<label for="password">密码：</label>
+			<input type="password" name="password" id="password" class="blur">
+		</p>
+		<div id="codeAside">
+			<!-- 单位使用百分比 -->
+			<label>
+				<span>验证码：</span>
+				<span>密码登录？</span>
+			</label>
+			<input type="text" name="code" id="code" class="blur">
+			<!-- 此处数字字体使用更像验证码的字体 -->
+			<!-- 按钮背景加上一张更像验证码的 -->
+			<!-- 登录注册按钮写在同一个页面上，利用js增加 -->
+			<div id="getCode">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div id="error" class="error">验证失败</div>
+    	</div>
 	<!--</p>-->
-	<p>
-		<input type="submit" name="login" id="login" value="登录">
-	</p>
-	
+		<p>
+			<input type="submit" name="login" id="login" value="登录">
+		</p>
+	</div>
 </form>
 
 

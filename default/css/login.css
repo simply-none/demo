@@ -1,80 +1,162 @@
 *{
 	margin: 0;
 	padding: 0;
+	border: 0;
 }
+
 body{
 	background-image: url("../img/loginPageBackground.jpg");
+	/*设置背景覆盖整个窗口，超出部分剪掉*/
 	background-size: cover;
 }
 form{
+	/*content-box使得对象的宽高==设置的宽高，padding和border不包括在内*/
 	box-sizing: content-box;
-	width: 600px;
-	padding: 20px;
-	background: #ffe4cc;
-	/*margin: 200px auto;*/
+	line-height: 30px;
+	/*padding: 20px;*/
+	/*background: #ffe4cc;*/
 	/*适用于块元素的垂直居中的方法*/
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+}
 
+h1,
+#username,
+#password,
+#code {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+}
+
+h1{
+	padding: 20px 0;
+	font-family: cursive,Arial;
+	font-size: 24px;
+	text-align: center;
 
 }
 
-label {
-	/*display: block;*/
+#contentItem{
+	padding: 15px;
+	background: rgba(96, 108, 97, 0.42);
+	border: 1px solid #c6c6c6;
+	border-radius: 10px;
 }
 
-form>p,
-form>div{
-	/*padding-left: 17%;*/
+#contentItem>p,
+#contentItem>div{
+	width: 320px;
+	margin-bottom: 10px;
+}
+#contentItem p:last-child {
+	margin-bottom: 0;
+	margin-top: 20px;
+}
+#contentItem p:first-child {
+	/*width: 310px;*/
 }
 
-form p:last-child{
-	padding: 0;
+.focus {
+	box-shadow: 0 0 0 3px #e5001c;
 }
-#login{
-	/*width: 20%;*/
-	/*margin: 0 40%;*/
+.blur {
+	box-shadow: none;
+}
+#username,
+#password,
+#code,
+#getCode {
+	border: 1px solid #929292;
+	box-sizing: border-box;
+	border-radius: 3px;
+	padding: 2px 5px;
 }
 
+
+#code {
+	border-radius: 3px 0 0 3px;
+}
+#getCode {
+	border-radius: 0 3px 3px 0;
+}
+
+#login {
+	height: 30px;
+	line-height: 30px;
+	border-radius: 3px;
+	background: #18b63d;
+}
+#login:hover {
+	background: #17a439;
+}
+#contentItem p label,
+#contentItem p input,
+#contentItem p span,
+#codeAside label {
+	width: inherit;
+}
+
+#code{
+	width: 220px;
+	border-right: 0;
+}
+/*禁止父元素浮动*/
 #codeAside{
 	overflow: hidden;
-	/*width: 100px ;*/
 }
-
 #codeAside label,
 #codeAside #code,
 #codeAside #getCode{
 	float: left;
 }
+
+#codeAside label {
+	/*将验证码项与输入分离*/
+	width: 100%;
+}
 /*消除边距*/
 input#getCode {
-	/*width: 20%;*/
 	margin-left: -4px;
 }
+
 #getCode{
-	width: 200px;
-	height: fit-content;
-	font-size: 36px;
+	padding: 0 10px;
+	/*自适应内容的宽度fit-content*/
+	width: fit-content;
+	height: 30px;
+	border-left: 0;
+	font-size: 20px;
 	background-image: url('../img/randomCodeImg.jpg');
 	cursor: default;
 }
-#getCode>span:first-child{
-	margin-left: 20px;
-}
+
 #getCode>span{
 	display: inline-block;
-	width: 20px;
+	width: 16px;
+	height: 14px;
 	text-align: center;
 	/*transform: rotate(45deg);*/
 }
 /*错误信息设置开始*/
-#error{
+/*#error{
 	display: none;
 }
 #error.error{
 	display: block;
+	color: #ff1c06;
+}*/
+.error{
+	display: none;
+}
+.errorCode.error{
+	display: block;
+	/*清除上面元素带来的浮动*/
+	clear: both;
+	width: 320px;
+	height: 20px;
 	color: #ff1c06;
 }
 /*错误信息设置结束*/

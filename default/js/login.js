@@ -90,14 +90,14 @@ var inputCode = document.getElementById("code");
 inputCode.onblur = function () {
     if (inputCode.value !== strCode) {
         // 给提示信息标签添加类名让提示显示出来
-        error.className = "error";
+        error.className += " errorCode";
         //验证失败跟更新验证码
         randomCodeToSpan();
 
     }
     // 验证成功隐藏提示
     else {
-        error.className = null;
+        error.className = "error";
     }
 };
 // 跳转
@@ -114,3 +114,15 @@ login.onclick = function () {
         form.action = "";
     }
 };
+
+// 输入框聚焦之后的边框样式
+var setFocusInput = document.getElementsByClassName("focus");
+
+for (var i = 0; i < setFocusInput.length; i++) {
+    if (setFocusInput[i].onfocus) {
+        setFocusInput[i].className = "focus";
+    }
+    else {
+        setFocusInput[i].className = "blur"
+    }
+}
