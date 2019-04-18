@@ -23,6 +23,9 @@ for (var i = 0; i < getTd.length; i++) {
 		else if (this.innerHTML === "Mod") {
 			getNumberString += "%"
 		}
+        else if (this.innerHTML === "n!") {
+            getNumberString += "!"
+        }
 		else {
 			getNumberString += this.innerHTML;
 		}
@@ -53,5 +56,25 @@ var table = document.getElementsByTagName("table")[0];
 table.onmouseleave = function () {
 
 	var stringSplit = getNumberString.split("\(|\)");
-	alert(stringSplit);
+	// alert(stringSplit);
+};
+
+document.getElementsByTagName("body")[0].onclick = function () {
+	var getPrompt = document.getElementById("prompt");
+	getPrompt.style.display = "none";
+	var section = document.getElementsByTagName("section")[0];
+	// 此处可加上动画渐变效果
+	section.style.opacity = 1;
+	section.style.transform = "rotate(0deg)";
+    var aside = document.getElementsByTagName("aside")[0];
+    aside.style.opacity = 1;
+    aside.style.transform = "rotate(0deg)"
+};
+
+var allTd = document.getElementsByTagName("td");
+for (var i = 0; i < allTd.length; i++) {
+	if (allTd[i].firstChild.nodeValue === "=") {
+		// 计算 表达式结果
+
+	}
 }

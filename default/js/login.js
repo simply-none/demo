@@ -35,11 +35,14 @@ function color() {
 }
 // 定义验证码倾斜角度
 function randomCodeTransformRotate() {
+    /*用到的知识：
+    Math.floor()向下取整
+    Math.ceil()向上取整*/
     var random = Math.floor(Math.random() * 60 - 30);
     return random;
     /*
     // 正负开关
-    var randomFlag = Math.floor(Math.random() * 2);
+    var randomFlag = Math.ceil(Math.random() * 2);
     if (randomFlag === 1) {
         return -random;
     }
@@ -73,9 +76,19 @@ getCode.onselectstart = function () {
 };
 
 var getCodeSpan = getCode.getElementsByTagName("span");
-// 页面加载执行一次
-randomCodeToSpan();
+var inputCode = document.getElementById("code");
 
+// 页面加载执行一次
+// randomCodeToSpan();          //此处为不需注释代码
+
+
+// 实验代码     第一次自动填写验证码
+function firstLoadCode() {
+    randomCodeToSpan();
+    inputCode.value = strCode;
+}
+
+firstLoadCode();
 //点击更换验证码
 getCode.onclick = function () {
     randomCodeToSpan();
@@ -84,9 +97,6 @@ getCode.onclick = function () {
 var error = document.getElementById("error");
 
 //验证输入是否正确
-//                          可以用正则表达式限制输入？？？
-
-var inputCode = document.getElementById("code");
 inputCode.onblur = function () {
     if (inputCode.value !== strCode) {
         // 给提示信息标签添加类名让提示显示出来
@@ -118,6 +128,8 @@ login.onclick = function () {
 // 输入框聚焦之后的边框样式
 var setFocusInput = document.getElementsByClassName("focus");
 
+
+//          未实现？？？
 for (var i = 0; i < setFocusInput.length; i++) {
     if (setFocusInput[i].onfocus) {
         setFocusInput[i].className = "focus";

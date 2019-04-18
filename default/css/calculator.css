@@ -5,12 +5,27 @@
 body{
     margin: 0 auto;
 }
+section,aside {
+    float: left;
+    opacity: 0.3;
+}
+section{
+    transform: rotate(-60deg);
+}
+aside{
+    width: 500px;
+    height: 500px;
+    background: #17a439;
+    transform: rotate(60deg);
+}
 #calculate{
     width: 620px;
     height: 200px;
     background: #ff8a13;
     padding-top: 5px;
 }
+
+
 td{
     width: 120px;
     height: 65px;
@@ -19,4 +34,25 @@ td{
     font-weight: bold;
 
     text-align: center;
+}
+
+#prompt {
+    box-sizing: content-box;
+    width: 1000px;
+    height: 350px;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 250px;
+    /*相对父元素居中*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    z-index: 9999;
+    background: rgba(229, 0, 28, 0.42);
+}
+
+.prompt {
+    display: none;
 }

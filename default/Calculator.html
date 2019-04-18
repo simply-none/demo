@@ -6,65 +6,74 @@
     <link rel="stylesheet" href="css/calculator.css">
 </head>
 <body>
-<div id="calculate">
+<section>
+    <div id="calculate">
 
-</div>
-<table style="cursor: pointer;">
-    <tr>
-        <td>x<sup>2</sup></td>
-        <td>x<sup>y</sup></td>
-        <td>sin</td>
-        <td>cos</td>
-        <td>tan</td>
-    </tr>
-    <tr>
-        <td>&radic;</td>
-        <td>10<sup>x</sup></td>
-        <td>log</td>
-        <!--exp为10的幂-->
-        <td>Exp</td>
-        <td>Mod</td>
-    </tr>
-    <tr>
-        <td>&uarr;</td>
-        <!--ce清除一一次的结果-->
-        <td>CE</td>
-        <td id="deleteAll">C</td>
-        <!--清除一个字符-->
-        <td id="deleteSignal">&lArr;</td>
-        <td>/</td>
-    </tr>
-    <tr>
-        <td>PI</td>
-        <td class="num">7</td>
-        <td class="num">8</td>
-        <td class="num">9</td>
-        <td>*</td>
-    </tr>
-    <tr>
-        <!--求阶乘-->
-        <td>n!</td>
-        <td class="num">4</td>
-        <td class="num">5</td>
-        <td class="num">6</td>
-        <td>-</td>
-    </tr>
-    <tr>
-        <!--取正负-->
-        <td>+/-</td>
-        <td class="num">1</td>
-        <td class="num">2</td>
-        <td class="num">3</td>
-        <td>+</td>
-    </tr>
-    <tr>
-        <td>(</td>
-        <td>)</td>
-        <td class="num">0</td>
-        <td>.</td>
-        <td>=</td>
-    </tr>
-</table>
+    </div>
+    <table style="cursor: pointer;">
+        <tr>
+            <td>x<sup>2</sup></td>
+            <td>x<sup>y</sup></td>
+            <td>sin</td>
+            <td>cos</td>
+            <td>tan</td>
+        </tr>
+        <tr>
+            <td>&radic;</td>
+            <td>10<sup>x</sup></td>
+            <td>log</td>
+            <!--exp为10的幂-->
+            <td>Exp</td>
+            <td>Mod</td>
+        </tr>
+        <tr>
+            <td>&uarr;</td>
+            <!--ce清除一一次的结果-->
+            <td>CE</td>
+            <td id="deleteAll">C</td>
+            <!--清除一个字符-->
+            <td id="deleteSignal">&lArr;</td>
+            <td>/</td>
+        </tr>
+        <tr>
+            <td>PI</td>
+            <td class="num">7</td>
+            <td class="num">8</td>
+            <td class="num">9</td>
+            <td>*</td>
+        </tr>
+        <tr>
+            <!--求阶乘-->
+            <td>n!</td>
+            <td class="num">4</td>
+            <td class="num">5</td>
+            <td class="num">6</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <!--取正负-->
+            <td>+/-</td>
+            <td class="num">1</td>
+            <td class="num">2</td>
+            <td class="num">3</td>
+            <td>+</td>
+        </tr>
+        <tr>
+            <td>(</td>
+            <td>)</td>
+            <td class="num">0</td>
+            <td>.</td>
+            <td>=</td>
+        </tr>
+    </table>
+</section>
+<aside>结果</aside>
+<!--提示-->
+<p id="prompt">
+    <span>这是一个简易计算器，每次只能进行一步计算，请见谅</span>
+    <br><br><br>
+    <span>点击进入</span>
+</p>
 <script src="js/calculator.js"></script>
 </body>
 </html>
