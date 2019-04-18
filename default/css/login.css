@@ -38,6 +38,13 @@ input#getCode {
 	width: 20%;
 	margin-left: -4px;
 }
+#getCode{
+	background-image: url('img/randomCodeImg.jpg');
+}
+#getCode>span{
+	display: inline-block;
+	width: 20px;
+}
 #error{
 	display: none;
 }

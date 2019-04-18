@@ -15,15 +15,21 @@
 		<label for="password">密码：</label>
 		<input type="password" name="password" id="password">
 	</p>
-	<p>
+	<div>
 		<!-- 单位使用百分比 -->
 		<label for="code">验证码：</label>
 		<input type="text" name="code" id="code">
 		<!-- 此处数字字体使用更像验证码的字体 -->
 		<!-- 按钮背景加上一张更像验证码的 -->
 		<!-- 登录注册按钮写在同一个页面上，利用js增加 -->
-		<input type="button" name="random" id="getCode">
+        <div id="getCode">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 		<p id="error">验证失败</p>
+    </div>
 	<!--</p>-->
 	<p>
 		<input type="submit" name="login" id="login" value="Login">

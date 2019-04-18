@@ -1,7 +1,10 @@
 // 随机数验证码
-var cacheCode = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBM1234567890";
+var cacheCode = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+
 function randomCode() {
     var strCode = "";
+    // 出现3个的情况，测试randomChar
+    var testChar = [];
     for (var i = 0; i < 4; i++) {
         /*
         使用到的知识点
@@ -10,19 +13,49 @@ function randomCode() {
         str.charAt();
         */
         var randomChar = Math.floor(Math.random() * 62);
+        testChar.push(randomChar);
         strCode += cacheCode.charAt(randomChar);
     }
+    // alert(testChar+strCode);
     return strCode;
 }
+// 定义颜色
+function color() {
+    var str = "#";
+    // 此处应该谨记字符需要加上引号，否则报错
+    var colorArr = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
+    for (var i = 0; i < 6; i++) {
+        var random = Math.floor(Math.random() * 16);
+        str += colorArr[random];
+    }
+    // alert(str);
+    return str;
+}
 
+function randomCodeToSpan() {
+    var strCode = randomCode();
+    // alert("hellp");
+    // alert(strCode)
+    for (var i = 0; i < 4; i++) {
+        getCodeSpan[i].innerHTML = strCode.charAt(i);
+        // alert(color());
+        // getCodeSpan[i].style.color = "#2ba7ff";
+        getCodeSpan[i].style.color = color();
+    }
+}
 // 页面加载执行一次
 var getCode = document.getElementById("getCode");
-getCode.value = randomCode();
+var getCodeSpan = getCode.getElementsByTagName("span");
+randomCodeToSpan();
+
+
+// getCode.value = randomCode();
 
 //点击更换验证码
 getCode.onclick = function () {
-    getCode.value = randomCode();
+    // getCode.value = randomCode();
     // alert(randomCode())
+    randomCodeToSpan();
 };
 
 var error = document.getElementById("error");
