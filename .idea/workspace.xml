@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f22b799c-888c-497b-923a-accc5522b6f6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/default/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/default/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/img/randomCodeImg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/default/img/randomCodeImg.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/default/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/default/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/default/login.html" afterDir="false" />
     </list>
@@ -17,14 +17,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.40118968">
+    <splitter split-orientation="horizontal" split-proportion="0.44348976">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/default/login.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="256">
-                  <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+                <state relative-caret-position="952">
+                  <caret line="38" column="62" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
                 </state>
               </provider>
             </entry>
@@ -36,8 +36,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/default/css/login.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+                <state relative-caret-position="216">
+                  <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
                 </state>
               </provider>
             </entry>
@@ -45,8 +45,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/default/js/login.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="984">
-                  <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+                <state relative-caret-position="1272">
+                  <caret line="52" column="28" lean-forward="true" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
                 </state>
               </provider>
             </entry>
@@ -67,6 +67,7 @@
     <findStrings>
       <find>id</find>
       <find>alert</find>
+      <find>display</find>
     </findStrings>
     <replaceStrings>
       <replace>class</replace>
@@ -96,8 +97,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="871" />
-    <option name="width" value="1058" />
+    <option name="x" value="690" />
+    <option name="width" value="1238" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -131,6 +132,12 @@
               <item name="demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
               <item name="default" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="default" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -146,6 +153,9 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="Q:\桌面\WebstormProjects\demo\default\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="Q:\桌面\WebstormProjects\demo\default" />
       <recent name="Q:\桌面\WebstormProjects\demo\default\js" />
@@ -178,12 +188,12 @@
       <workItem from="1555459056889" duration="21079000" />
       <workItem from="1555497668511" duration="10927000" />
       <workItem from="1555512837880" duration="3062000" />
-      <workItem from="1555546589917" duration="4124000" />
+      <workItem from="1555546589917" duration="15659000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47931000" />
+    <option name="totallyTimeSpent" value="59466000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -198,7 +208,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16126901" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.32782552" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -210,14 +220,14 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32941177" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.120588236" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.15294118" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16126901" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32782552" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -229,7 +239,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32941177" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.120588236" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.15294118" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -323,24 +333,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/default/img/loginPageBackground.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/img/randomCodeImg.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/default/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="984">
-          <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+        <state relative-caret-position="1272">
+          <caret line="52" column="28" lean-forward="true" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="38" column="62" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/default/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+        <state relative-caret-position="216">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
         </state>
       </provider>
     </entry>

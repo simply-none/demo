@@ -7,6 +7,7 @@
 </head>
 <body>
 <form>
+	<h1>登录到Waster Application</h1>
 	<p>
 		<label for="username">用户名：</label>
 		<input type="text" name="username" id="username" placeholder="Waster-Qiu" value="Waster-Qiu">
@@ -15,9 +16,12 @@
 		<label for="password">密码：</label>
 		<input type="password" name="password" id="password">
 	</p>
-	<div>
+	<div id="codeAside">
 		<!-- 单位使用百分比 -->
-		<label for="code">验证码：</label>
+		<label for="code">
+			<span>验证码：</span>
+			<span>密码登录？</span>
+		</label>
 		<input type="text" name="code" id="code">
 		<!-- 此处数字字体使用更像验证码的字体 -->
 		<!-- 按钮背景加上一张更像验证码的 -->
@@ -28,11 +32,11 @@
             <span></span>
             <span></span>
         </div>
-		<p id="error">验证失败</p>
+		<div id="error">验证失败</div>
     </div>
 	<!--</p>-->
 	<p>
-		<input type="submit" name="login" id="login" value="Login">
+		<input type="submit" name="login" id="login" value="登录">
 	</p>
 	
 </form>
