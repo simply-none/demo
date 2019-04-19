@@ -9,6 +9,7 @@ body{
 	/*设置背景覆盖整个窗口，超出部分剪掉*/
 	background-size: cover;
 }
+
 form{
 	/*content-box使得对象的宽高==设置的宽高，padding和border不包括在内*/
 	box-sizing: content-box;
@@ -215,3 +216,49 @@ button+button {
 .loginClick {
 	margin-right: 0;
 }
+/*显示子程序*/
+.subContentDisplay {
+	display: block;
+	padding-top: 66px;
+}
+/*隐藏子程序*/
+.subContentNone {
+	display: none;
+}
+
+.subContentDisplay .title {
+
+}
+
+.subContentDisplay .timeContent {
+
+}
+/*子程序功能键按钮*/
+.subContentDisplay .subFunctionSon {
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 30% 100% 100% 30%;
+	background: #923f3f7a;
+}
+/*鼠标覆盖时的样式*/
+.subContentDisplay .subFunctionSon:hover {
+	background: rgba(243, 0, 0, 0.54);
+}
+/*使得功能键水平对称排列*/
+.subContentDisplay button+button {
+	margin-left: 30px;
+}
+/*页面水平对齐*/
+.subContentDisplay>div {
+	width: fit-content;
+	height: fit-content;
+	margin: 0 auto;
+}
+/*时间显示内容*/
+.subContentDisplay .timeContent {
+	width: 700px;
+	height: 300px;
+	background: #00000063;
+}
+

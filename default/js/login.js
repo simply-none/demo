@@ -3,14 +3,218 @@ var cacheCode = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 // strCode设置全局变量用于验证用户输入与随机码是否匹配
 var strCode = "";
 var form = document.getElementsByTagName("form")[0];
-var divtest = document.getElementsByTagName("nav")[0];
+var navTest = document.getElementsByTagName("nav")[0];
+var setSubContent = document.getElementById("subContent");
 
-// 测试，在同一个界面内实现主页与登录页
 
-divtest.lastElementChild.lastElementChild.onclick = function () {
-    divtest.className = "click";
-    form.className = '';
-};
+// 事件委托处理菜单的点击事件
+function eventReplace(event) {
+    var e = event || window.event;
+    //target表示触发事件的对象的引用,srcElement适应ie6-8
+    var target = e.target || e.srcElement;
+    //选择按钮
+    // alert(target.nodeName);      测试目标节点的标签类型
+    if (target.nodeName === "BUTTON") {
+        // alert(target.firstChild.nodeValue);  测试目标节点的值
+        navTest.className = "click";
+        // 定义选中的节点的值
+        var selectNode = target.firstChild.nodeValue;
+
+        if (selectNode === "登录") {
+            form.className = '';
+        }
+        else {
+            // 设置鼠标点击对象的类值
+            setSubContent.className = "subContentDisplay";
+/*            switch (selectNode) {
+                case "倒数日":
+                    
+                    break;
+                case "纪念日":
+                    
+                    break;
+                case "考试倒计时":
+                    
+                    break;
+
+                case "出生的天数":
+                    
+                    break;
+
+                case "日期间隔":
+                    
+                    break;
+
+                case "哈哈哈":
+                    
+                    break;
+
+                case "60秒计时器":
+                    
+                    break;
+
+                case "5分钟计时器":
+                    
+                    break;
+
+                case "30分钟计时器":
+                    
+                    break;
+
+                case "自定义计时器":
+                    
+                    break;
+            }*/
+            subTitleTimeContent(deadlineTime60s(),selectNode);
+        }
+    }
+}
+
+navTest.addEventListener("click", eventReplace, false);
+
+// 功能变量
+var start = null;
+// pause：暂停
+var pause = null;
+var reset = null;
+var goOn = null;
+var goBack = null;
+
+//  60s倒计时 内容
+function deadlineTime60s() {
+    var title = document.createElement("h2");
+    // var titleValue = document.createTextNode("60s倒计时");
+    // title.appendChild(titleValue);
+
+    var timeContent = document.createElement("div");
+    timeContent.className = "timeContent";
+    // 功能包含块subFunction
+    var subFunction = document.createElement("div");
+
+    start = document.createElement("button");
+    var startValue = document.createTextNode("开始");
+    start.appendChild(startValue);
+
+    pause = document.createElement("button");
+    var pauseValue = document.createTextNode("暂停");
+    pause.appendChild(pauseValue);
+
+    goOn = document.createElement("button");
+    var goOnValue = document.createTextNode("继续");
+    goOn.appendChild(goOnValue);
+
+    reset = document.createElement("button");
+    var resetValue = document.createTextNode("重置");
+    reset.appendChild(resetValue);
+
+    goBack = document.createElement("button");
+    var goBackValue = document.createTextNode("返回");
+    goBack.appendChild(goBackValue);
+
+    subFunction.appendChild(start);
+    subFunction.appendChild(pause);
+    subFunction.appendChild(goOn);
+    subFunction.appendChild(reset);
+    subFunction.appendChild(goBack);
+    // 遍历功能集合中的所有功能节点
+    // var functionSet = [];    功能集合
+    var arrNode = subFunction.children;
+    // alert(arrNode);      测试类型
+    // 给功能模块的功能设置class
+    for (var i = 0; i < arrNode.length; i ++) {
+        // alert(arrNode[i]);
+        arrNode[i].className = "subFunctionSon";
+    }
+
+    // 返回主页面:goBack
+        arrNode[4].onclick = function () {
+            setSubContent.className = "subContentNone";
+            navTest.className = "";
+            setSubContent.innerHTML = "";
+        };
+
+    // 功能包含块结束
+
+    setSubContent.appendChild(title);
+    setSubContent.appendChild(timeContent);
+    setSubContent.appendChild(subFunction);
+    return [title, timeContent,arrNode];
+}
+// 设置子页面标题和时间显示模块名
+
+function subTitleTimeContent(arrSubTitleContent,selectNode) {
+    // 子页面标题标签
+    var title = arrSubTitleContent[0];
+    // 子页面主体显示内容标签
+    var timeContent = arrSubTitleContent[1];
+    // 功能集合
+    var functionSet = arrSubTitleContent[2];
+    
+    // 返回事件
+    // functionSet.onclick() = function () {
+    //
+    // }
+        
+        
+        
+    var titleValue = null;
+    switch (selectNode) {
+        case "倒数日":
+            titleValue = document.createTextNode("倒数日");
+            break;
+        case "纪念日":
+            titleValue = document.createTextNode("纪念日");
+            break;
+        case "考试倒计时":
+            titleValue = document.createTextNode("考试倒计时");
+            break;
+
+        case "出生的天数":
+            titleValue = document.createTextNode("出生的天数");
+            break;
+
+        case "日期间隔":
+            titleValue = document.createTextNode("日期间隔");
+            break;
+
+        case "哈哈哈":
+            titleValue = document.createTextNode("哈哈哈");
+            break;
+
+        case "60秒计时器":
+            titleValue = document.createTextNode("60秒计时器");
+
+            break;
+
+        case "5分钟计时器":
+            titleValue = document.createTextNode("5分钟计时器");
+            break;
+
+        case "30分钟计时器":
+            titleValue = document.createTextNode("30分钟计时器");
+            break;
+
+        case "自定义计时器":
+            titleValue = document.createTextNode("自定义计时器");
+            break;
+
+    }
+    title.appendChild(titleValue);
+
+}
+
+var getSubFunctionSon = document.getElementsByClassName("subFunctionSon");
+// 返回主页面
+for (var i = 0; i < getSubFunctionSon.length; i++) {
+    alert("error")
+    getSubFunctionSon[i].onclick = function () {
+        setSubContent.className = "subContentNone";
+        navTest.className = "";
+        // setSubContent.innerHTML = "";
+
+    };
+}
+
 
 function randomCode() {
     strCode = "";
@@ -83,7 +287,7 @@ var getCode = document.getElementById("getCode");
 getCode.onselectstart = function () {
     return false;
 };
-
+var getUsername = document.getElementById("username");
 var getCodeSpan = getCode.getElementsByTagName("span");
 var inputCode = document.getElementById("code");
 
@@ -122,16 +326,18 @@ inputCode.onblur = function () {
 // 跳转
 var login = document.getElementById("login");
 login.onclick = function () {
+    if (inputCode.value === strCode) {
+        form.className = "form";
+        navTest.className = "";
+        navTest.firstElementChild.firstElementChild.innerHTML = getUsername.value + ", ";
+    }
+    else {
+        error.className += " errorCode";
+    }
 
 
     // 改进？？？
 
-    if (inputCode.value === strCode) {
-        form.action = "index.html";
-    }
-    else {
-        form.action = "";
-    }
 };
 
 // 输入框聚焦之后的边框样式

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            display: block;
+            width: 100px;
+            height: 30px;
+            background: #68e57e;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var div = document.getElementsByTagName("div")[0];
+            // 事件委托
+            // 所有的li类型才能生效
+            function f(event) {
+                var e = event || window.event;
+                var target = e.target || e.srcElement;
+                // alert(target.nodeName);
+                if (target.nodeName === "LI") {
+                    alert(target.firstChild.nodeValue);
+                }
+            }
+            div.addEventListener("click",f,false);
+            var p = document.createElement("button");
+            var content = document.createTextNode("fdaslfjsdgj");
+            p.appendChild(content);
+            div.appendChild(p);
+        }
+    </script>
+</head>
+<body>
+<div>
+    <ul>
+        <p>1111</p>
+        <li>1</li>
+        <li>2</li>
+        <li>4</li>
+        <li>f</li>
+        <li>b</li>
+    </ul>
+    <ul>
+        <li>bg</li>
+        <li>jh</li>
+        <li>df</li>
+        <li>gr</li>
+        <li>sd</li>
+    </ul>
+    <ul>
+        <li>oi</li>
+        <li>jk</li>
+        <li>hfd</li>
+        <li>trh</li>
+        <li>agf</li>
+    </ul>
+    <button>fasfdsaf</button>
+</div>
+</body>
+</html>

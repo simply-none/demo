@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f22b799c-888c-497b-923a-accc5522b6f6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/default/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/default/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/js/calculator.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/js/calculator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/default/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/default/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/default/login.html" afterDir="false" />
     </list>
@@ -18,14 +16,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.38334435">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/default/login.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-32">
-                  <caret line="55" selection-start-line="55" selection-end-line="55" />
+                <state relative-caret-position="48">
+                  <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+                  <folding>
+                    <element signature="n#form#0;n#body#0;n#html#0;n#!!top" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -43,7 +44,7 @@
             <entry file="file://$PROJECT_DIR$/default/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="192">
-                  <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+                  <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
                 </state>
               </provider>
             </entry>
@@ -51,7 +52,7 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/default/timeDeadline.html">
               <provider selected="true" editor-type-id="text-editor">
@@ -66,20 +67,29 @@
               <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/default/css/login.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="304">
-                  <caret line="206" column="24" selection-start-line="206" selection-start-column="24" selection-end-line="206" selection-end-column="24" />
+                <state relative-caret-position="4840">
+                  <caret line="224" column="15" selection-start-line="224" selection-start-column="1" selection-end-line="224" selection-end-column="15" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/default/js/login.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="343">
+                  <caret line="134" lean-forward="true" selection-start-line="134" selection-end-line="134" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/default/js/login.js">
+            <entry file="file://$PROJECT_DIR$/TestDemo/事件委托test.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2808">
-                  <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+                <state relative-caret-position="184">
+                  <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
                 </state>
               </provider>
             </entry>
@@ -92,15 +102,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>id</find>
-      <find>alert</find>
       <find>display</find>
       <find>error</find>
       <find>username</find>
@@ -108,11 +117,23 @@
       <find>form</find>
       <find>h1</find>
       <find>h2</find>
+      <find>divtest</find>
+      <find>navTest</find>
+      <find>getTime60s</find>
+      <find>deadlineTime60s</find>
+      <find>click</find>
+      <find>button</find>
+      <find>alert</find>
+      <find>setSubContent.className = &quot;subContentDisplay&quot;;</find>
+      <find>nav</find>
     </findStrings>
     <replaceStrings>
       <replace>class</replace>
       <replace>blur</replace>
       <replace>h2</replace>
+      <replace>navTest</replace>
+      <replace>setSubContent</replace>
+      <replace>subContentDisplay</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -134,16 +155,18 @@
         <option value="$PROJECT_DIR$/default/js/calculator.js" />
         <option value="$PROJECT_DIR$/default/css/timeDeadline.css" />
         <option value="$PROJECT_DIR$/default/timeDeadline.html" />
-        <option value="$PROJECT_DIR$/default/js/login.js" />
+        <option value="$PROJECT_DIR$/TestDemo/事件委托test.html" />
         <option value="$PROJECT_DIR$/default/login.html" />
         <option value="$PROJECT_DIR$/default/css/login.css" />
+        <option value="$PROJECT_DIR$/default/js/login.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="690" />
-    <option name="width" value="1239" />
-    <option name="height" value="1039" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -153,7 +176,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,19 +197,13 @@
             <path>
               <item name="demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="TestDemo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,7 +255,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89745000" />
+    <option name="totallyTimeSpent" value="111508000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -254,7 +270,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19497687" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.14144084" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -266,14 +282,14 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32941177" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.47941175" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.0" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20026438" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14144084" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -285,7 +301,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32941177" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.47941175" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.0" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -303,9 +319,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/qq">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/default/qq" />
     <entry file="file://$PROJECT_DIR$/TestDemo/JavaScriptDemo/水仙花数.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -375,6 +389,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/default/timeDeadline.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/css/timeDeadline.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/default/Calculator.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -388,38 +412,38 @@
     <entry file="file://$PROJECT_DIR$/default/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
-          <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/timeDeadline.html">
+    <entry file="file://$PROJECT_DIR$/TestDemo/事件委托test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default/css/timeDeadline.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2808">
-          <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="184">
+          <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/default/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="206" column="24" selection-start-line="206" selection-start-column="24" selection-end-line="206" selection-end-column="24" />
+        <state relative-caret-position="4840">
+          <caret line="224" column="15" selection-start-line="224" selection-start-column="1" selection-end-line="224" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding>
+            <element signature="n#form#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="134" lean-forward="true" selection-start-line="134" selection-end-line="134" />
         </state>
       </provider>
     </entry>
