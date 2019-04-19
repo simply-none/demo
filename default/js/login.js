@@ -2,6 +2,15 @@
 var cacheCode = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 // strCode设置全局变量用于验证用户输入与随机码是否匹配
 var strCode = "";
+var form = document.getElementsByTagName("form")[0];
+var divtest = document.getElementsByTagName("nav")[0];
+
+// 测试，在同一个界面内实现主页与登录页
+
+divtest.lastElementChild.lastElementChild.onclick = function () {
+    divtest.className = "click";
+    form.className = '';
+};
 
 function randomCode() {
     strCode = "";
@@ -113,7 +122,7 @@ inputCode.onblur = function () {
 // 跳转
 var login = document.getElementById("login");
 login.onclick = function () {
-    var form = document.getElementsByTagName("form")[0];
+
 
     // 改进？？？
 
