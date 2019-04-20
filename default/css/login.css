@@ -115,7 +115,7 @@ h2{
 }
 
 #code{
-	width: 220px;
+	width: 218px;
 	border-right: 0;
 }
 /*禁止父元素浮动*/
@@ -230,9 +230,33 @@ button+button {
 
 }
 
-.subContentDisplay .timeContent {
+/*页面水平对齐*/
+
+.subContentDisplay>div {
+	width: fit-content;
+	height: fit-content;
+	margin: 0 auto;
+}
+.subContentDisplay>div:last-child {
+	/*兼容Firefox:当容器未设置宽度时，margin：0 auto;无效*/
+	/*width: 1063px;*/
+	-moz-margin-start: 30%;
 
 }
+/*时间显示内容*/
+
+.subContentDisplay .timeContent {
+	width: 700px;
+	height: 300px;
+	line-height: 300px;
+	background: #279f63b5;
+	mso-background: #18b63d;
+	text-align: center;
+	font-size: 300px;
+	font-weight: bolder;
+	color: #ff8a13;
+}
+
 /*子程序功能键按钮*/
 .subContentDisplay .subFunctionSon {
 	width: 100px;
@@ -248,17 +272,5 @@ button+button {
 /*使得功能键水平对称排列*/
 .subContentDisplay button+button {
 	margin-left: 30px;
-}
-/*页面水平对齐*/
-.subContentDisplay>div {
-	width: fit-content;
-	height: fit-content;
-	margin: 0 auto;
-}
-/*时间显示内容*/
-.subContentDisplay .timeContent {
-	width: 700px;
-	height: 300px;
-	background: #00000063;
 }
 

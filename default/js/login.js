@@ -6,8 +6,19 @@ var form = document.getElementsByTagName("form")[0];
 var navTest = document.getElementsByTagName("nav")[0];
 var setSubContent = document.getElementById("subContent");
 
+var colorArr = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
+function color() {
+    var str = "#";
+    // 此处应该谨记字符需要加上引号，否则报错
+    for (var i = 0; i < 6; i++) {
+        var random = Math.floor(Math.random() * 16);
+        str += colorArr[random];
+    }
+    // alert(str);
+    return str;
+}
 
-// 事件委托处理菜单的点击事件
+// 事件委托处理           菜单的点击事件
 function eventReplace(event) {
     var e = event || window.event;
     //target表示触发事件的对象的引用,srcElement适应ie6-8
@@ -26,45 +37,9 @@ function eventReplace(event) {
         else {
             // 设置鼠标点击对象的类值
             setSubContent.className = "subContentDisplay";
-/*            switch (selectNode) {
-                case "倒数日":
-                    
-                    break;
-                case "纪念日":
-                    
-                    break;
-                case "考试倒计时":
-                    
-                    break;
 
-                case "出生的天数":
-                    
-                    break;
 
-                case "日期间隔":
-                    
-                    break;
 
-                case "哈哈哈":
-                    
-                    break;
-
-                case "60秒计时器":
-                    
-                    break;
-
-                case "5分钟计时器":
-                    
-                    break;
-
-                case "30分钟计时器":
-                    
-                    break;
-
-                case "自定义计时器":
-                    
-                    break;
-            }*/
             subTitleTimeContent(deadlineTime60s(),selectNode);
         }
     }
@@ -80,7 +55,7 @@ var reset = null;
 var goOn = null;
 var goBack = null;
 
-//  60s倒计时 内容
+//  创建子页面视图
 function deadlineTime60s() {
     var title = document.createElement("h2");
     // var titleValue = document.createTextNode("60s倒计时");
@@ -116,29 +91,26 @@ function deadlineTime60s() {
     subFunction.appendChild(goOn);
     subFunction.appendChild(reset);
     subFunction.appendChild(goBack);
-    // 遍历功能集合中的所有功能节点
-    // var functionSet = [];    功能集合
+
+
+
+    // 遍历功能集合中的所有功能节点功能集合
+    // 当传送arrNode时，在IE系列无效，故设置一个functionSet数组存储功能键
+    var functionSet = [start, pause, goOn, reset, goBack];
     var arrNode = subFunction.children;
-    // alert(arrNode);      测试类型
+    // alert(arrNode);      /*测试类型*/
     // 给功能模块的功能设置class
     for (var i = 0; i < arrNode.length; i ++) {
         // alert(arrNode[i]);
         arrNode[i].className = "subFunctionSon";
     }
 
-    // 返回主页面:goBack
-        arrNode[4].onclick = function () {
-            setSubContent.className = "subContentNone";
-            navTest.className = "";
-            setSubContent.innerHTML = "";
-        };
-
     // 功能包含块结束
 
     setSubContent.appendChild(title);
     setSubContent.appendChild(timeContent);
     setSubContent.appendChild(subFunction);
-    return [title, timeContent,arrNode];
+    return [title, timeContent,functionSet];
 }
 // 设置子页面标题和时间显示模块名
 
@@ -146,18 +118,96 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
     // 子页面标题标签
     var title = arrSubTitleContent[0];
     // 子页面主体显示内容标签
+    var titleValue = null;
     var timeContent = arrSubTitleContent[1];
+
     // 功能集合
     var functionSet = arrSubTitleContent[2];
-    
+
+
     // 返回事件
-    // functionSet.onclick() = function () {
-    //
-    // }
-        
-        
-        
-    var titleValue = null;
+    // onclick是没有括号的
+   functionSet[4].onclick = function () {
+       setSubContent.className = "subContentNone";
+       navTest.className = "";
+       setSubContent.innerHTML = "";
+   } ;
+
+   /*functionSet[4].addEventListener("click", function (event) {
+       var e = event || window.event;
+       var target = e.target || e.srcElement;
+       // alert(target.nodeValue)
+       if (target) {
+           setSubContent.className = "subContentNone";
+           navTest.className = "";
+           setSubContent.innerHTML = "";
+       }
+   },false);*/
+
+
+    var setTime60s = new Date("1970/01/01 00:00:00");
+    var setTime0s = new Date("1970/01/01 00:00:00");
+
+    function setTimeNum() {
+
+        setTime60s.setSeconds(60);
+        var getSecond = (setTime60s.getTime() - setTime0s.getTime())/ 1000;
+        // alert(getSecond);
+        var test = document.createTextNode(getSecond);
+        timeContent.appendChild(test);
+
+        function startTime60s() {
+            if (getSecond > 0) {
+                getSecond--;
+                timeContent.style.color = color();
+            }
+            timeContent.innerHTML = "";
+            test = document.createTextNode(getSecond);
+            timeContent.appendChild(test)
+        }
+
+        var timer = null;
+
+
+        // start time go
+        functionSet[0].onclick = function () {
+            /*只有在timer为空的时候才执行函数，故当点击一次之后，此时不会再执行
+            防止时间加快，而使用
+            clearInterval(timer)
+            会连续点击之后时间处于静止状态*/
+            // 页面显示第一次时/重置getSecond为60执行
+            if (getSecond === 60) {
+                timer = setInterval(startTime60s, 1000);
+            }
+        };
+        // pause time go
+        functionSet[1].onclick = function () {
+            clearInterval(timer);
+            // 重置为null供继续键使用
+            timer = null;
+        };
+        // go on time
+        functionSet[2].onclick = function () {
+            if (!timer && getSecond !== 60) {
+                timer = setInterval(startTime60s, 1000);
+            }
+
+
+        };
+        // reset time
+        functionSet[3].onclick = function () {
+            clearInterval(timer);
+            getSecond = (setTime60s.getTime() - setTime0s.getTime()) / 1000;
+            timeContent.innerHTML = "";
+            timeContent.style.color = color();
+            test = document.createTextNode(getSecond);
+            timeContent.appendChild(test)
+        };
+
+    }
+
+
+
     switch (selectNode) {
         case "倒数日":
             titleValue = document.createTextNode("倒数日");
@@ -183,7 +233,67 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
 
         case "60秒计时器":
             titleValue = document.createTextNode("60秒计时器");
+            setTimeNum();
 
+            /*titleValue = document.createTextNode("60秒计时器");
+            var setTime60s = new Date("1970/01/01 00:00:00");
+            var setTime0s = new Date("1970/01/01 00:00:00");
+            setTime60s.setSeconds(60);
+            var getSecond = (setTime60s.getTime() - setTime0s.getTime())/ 1000;
+            // alert(getSecond);
+            var test = document.createTextNode(getSecond);
+            timeContent.appendChild(test);
+
+            // 设置背景渐变       ????
+            var timeContentBgColor = timeContent.style.backgroundColor;
+            timeContentBgColor = color().slice(1);
+
+            function startTime60s() {
+                if (getSecond > 0) {
+                    getSecond--;
+                    timeContent.style.color = color();
+                }
+                timeContent.innerHTML = "";
+                test = document.createTextNode(getSecond);
+                timeContent.appendChild(test)
+            }
+
+            var timer = null;
+
+
+            // start time go
+            functionSet[0].onclick = function () {
+                /!*只有在timer为空的时候才执行函数，故当点击一次之后，此时不会再执行
+                防止时间加快，而使用
+                clearInterval(timer)
+                会连续点击之后时间处于静止状态*!/
+                // 页面显示第一次时/重置getSecond为60执行
+                if (getSecond === 60) {
+                    timer = setInterval(startTime60s, 1000);
+                }
+            };
+            // pause time go
+            functionSet[1].onclick = function () {
+                clearInterval(timer);
+                // 重置为null供继续键使用
+                timer = null;
+            };
+            // go on time
+            functionSet[2].onclick = function () {
+                if (!timer && getSecond !== 60) {
+                    timeContent.style.color = color();
+                    timer = setInterval(startTime60s, 1000);
+                }
+            };
+            // reset time
+            functionSet[3].onclick = function () {
+                clearInterval(timer);
+                getSecond = (setTime60s.getTime() - setTime0s.getTime()) / 1000;
+                timeContent.innerHTML = "";
+                timeContent.style.color = color();
+                test = document.createTextNode(getSecond);
+                timeContent.appendChild(test)
+            };*/
             break;
 
         case "5分钟计时器":
@@ -203,17 +313,6 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
 
 }
 
-var getSubFunctionSon = document.getElementsByClassName("subFunctionSon");
-// 返回主页面
-for (var i = 0; i < getSubFunctionSon.length; i++) {
-    alert("error")
-    getSubFunctionSon[i].onclick = function () {
-        setSubContent.className = "subContentNone";
-        navTest.className = "";
-        // setSubContent.innerHTML = "";
-
-    };
-}
 
 
 function randomCode() {
@@ -235,17 +334,7 @@ function randomCode() {
     return strCode;
 }
 // 定义颜色
-var colorArr = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
-function color() {
-    var str = "#";
-    // 此处应该谨记字符需要加上引号，否则报错
-    for (var i = 0; i < 6; i++) {
-        var random = Math.floor(Math.random() * 16);
-        str += colorArr[random];
-    }
-    // alert(str);
-    return str;
-}
+
 // 定义验证码倾斜角度
 function randomCodeTransformRotate() {
     /*用到的知识：
