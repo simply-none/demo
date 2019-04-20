@@ -5,7 +5,7 @@ var strCode = "";
 var form = document.getElementsByTagName("form")[0];
 var navTest = document.getElementsByTagName("nav")[0];
 var setSubContent = document.getElementById("subContent");
-
+var valueSSS = 0;
 var colorArr = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
 function color() {
     var str = "#";
@@ -17,7 +17,6 @@ function color() {
     // alert(str);
     return str;
 }
-
 // 事件委托处理           菜单的点击事件
 function eventReplace(event) {
     var e = event || window.event;
@@ -175,11 +174,14 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
     var yearsTimeValue = null;
     var getYearsTimeValue = null;
 
-    // 分号：时钟与秒钟之间
-    var getDottedValue = document.createTextNode(":");
-    var getDottedNode = document.createElement("span");
-    getDottedNode.appendChild(getDottedValue);
-
+    // 分号：分钟与秒钟之间
+    var getMSDottedValue = document.createTextNode(":");
+    var getMSDottedNode = document.createElement("span");
+    getMSDottedNode.appendChild(getMSDottedValue);
+    // 分号：时钟与分钟之间
+    var getHMDottedValue = document.createTextNode(":");
+    var getHMDottedNode = document.createElement("span");
+    getHMDottedNode.appendChild(getHMDottedValue);
     function setTimeNum(num) {
         if (num < 60) {
             setTimeEnd.setSeconds(num);
@@ -188,62 +190,83 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
             setTimeEnd.setSeconds(num % 60);
             setTimeEnd.setMinutes(Math.floor(num / 60));
         }
-        else if (num < 24 * 60 * 60) {
+        else  {
             setTimeEnd.setHours(Math.floor(num / 3600));
             setTimeEnd.setMinutes(Math.floor((num % 3600) / 60));
             setTimeEnd.setSeconds(Math.floor(num % 60));
         }
-        else {
-            setTimeEnd.setFullYear()
-        }
+
         // 设置时间后获取时间的秒值
         var getSecond = (setTimeEnd.getTime() - setTimeStart.getTime())/ 1000;
 
 
         // 页面加载时初始化的时间
-        if (num < 60) {
-            // 设置  秒 值
-            getSecondsTimeValue = setTimeEnd.getSeconds();
-            if (getSecondsTimeValue < 10) {
-                getSecondsTimeValue = "0" + getSecondsTimeValue;
-            }
-            secondsTimeValue = document.createTextNode(getSecondsTimeValue + '');
-            secondsTimeNode.appendChild(secondsTimeValue);
-            timeContent.appendChild(secondsTimeNode);
+        // 60s之内只设置秒值，所有时间共有
+        // 设置  秒 值
+        getSecondsTimeValue = setTimeEnd.getSeconds();
+        if (getSecondsTimeValue < 10) {
+            getSecondsTimeValue = "0" + getSecondsTimeValue;
         }
-        else if (num <= 60 * 60) {
-            getSecondsTimeValue = setTimeEnd.getSeconds();
-            if (getSecondsTimeValue < 10) {
-                getSecondsTimeValue = "0" + getSecondsTimeValue;
-            }
-            secondsTimeValue = document.createTextNode(getSecondsTimeValue + '');
-            secondsTimeNode.appendChild(secondsTimeValue);
+        secondsTimeValue = document.createTextNode(getSecondsTimeValue + '');
+        secondsTimeNode.appendChild(secondsTimeValue);
+        // 超过一分钟
+        if (num >= 60) {
             getMinutesTimeValue = setTimeEnd.getMinutes();
             if (getMinutesTimeValue < 10) {
                 getMinutesTimeValue = "0" + getMinutesTimeValue;
             }
             minutesTimeValue = document.createTextNode(getMinutesTimeValue + '');
             minutesTimeNode.appendChild(minutesTimeValue);
-            timeContent.appendChild(minutesTimeNode);
-            timeContent.appendChild(getDottedNode);
-            timeContent.appendChild(secondsTimeNode);
         }
+        // 超过一小时
+        if (num >= 60 * 60) {
+            // getHoursTimeValue = setTimeEnd.getHours();
+            getHoursTimeValue = Math.floor(num / 3600);
 
+            if (getHoursTimeValue < 10) {
+                getHoursTimeValue = "0" + getHoursTimeValue;
+            } 
+            hoursTimeValue = document.createTextNode(getHoursTimeValue + '');
+            hoursTimeNode.appendChild(hoursTimeValue);
+        } 
+        // 超过一天
+        if (num >= 24 * 60 * 60) {
+            
+        } 
+        if (num >= 60 * 60) {
+            timeContent.appendChild(hoursTimeNode);
+            timeContent.appendChild(getHMDottedNode);
+        }
+        if (num >= 60) {
+            timeContent.appendChild(minutesTimeNode);
+            timeContent.appendChild(getMSDottedNode);
+        }
+        timeContent.appendChild(secondsTimeNode);
         // 当页面首次加载或重置时，运行
-        var tempTTTimeNum = 0;
         function startRunTime() {
 
             if (getSecond > 0) {
                 secondsTimeNode.removeChild(secondsTimeValue);
                 getSecond--;
-                tempTTTimeNum++;
                 // 时间变化时，先清除原有的内容节点
                 // 之后再重新创建内容节点
                 getSecondsTimeValue--;
                 if (getSecondsTimeValue === -1) {
                     getSecondsTimeValue = 59;
                     getMinutesTimeValue--;
+                    if (getMinutesTimeValue === -1) {
+                        getMinutesTimeValue = 59;
+                        getHoursTimeValue--;
+                        if (getHoursTimeValue < 10) {
+                            getHoursTimeValue = "0" + getHoursTimeValue;
+                        }
+                        hoursTimeNode.removeChild(hoursTimeValue);
+                        hoursTimeValue = document.createTextNode(getHoursTimeValue + '');
+                        hoursTimeNode.appendChild(hoursTimeValue);
+                        hoursTimeNode.style.color = color();
+                    }
                 }
+
                 if (getSecondsTimeValue < 10) {
                     getSecondsTimeValue = "0" + getSecondsTimeValue;
                 }
@@ -259,11 +282,9 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
                     minutesTimeValue = document.createTextNode(getMinutesTimeValue + '');
                     minutesTimeNode.appendChild(minutesTimeValue);
                     minutesTimeNode.style.color = color();
+                    getHMDottedNode.style.color = color();
                 }
-                // getDottedNode.appendChild(getDottedValue);
-                getDottedNode.style.color = color();
-                timeContent.appendChild(secondsTimeNode);
-
+                getMSDottedNode.style.color = color();
             }
         }
 
@@ -316,7 +337,16 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
                 minutesTimeNode.appendChild(minutesTimeValue);
                 minutesTimeNode.style.color = color();
             }
-
+            if (getHoursTimeValue !== null) {
+                hoursTimeNode.removeChild(hoursTimeValue);
+                getHoursTimeValue = setTimeEnd.getHours();
+                if (getHoursTimeValue < 10) {
+                    getHoursTimeValue = "0" + getHoursTimeValue;
+                }
+                hoursTimeValue = document.createTextNode(getHoursTimeValue + '');
+                hoursTimeNode.appendChild(hoursTimeValue);
+                hoursTimeNode.style.color = color();
+            }
             // 使得只能按开始键才有效
             getSecond = num;
         };
@@ -347,69 +377,9 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
             titleValue = document.createTextNode("哈哈哈");
             break;
 
-        case "60秒计时器":
-            titleValue = document.createTextNode("60秒计时器");
-            setTimeNum(60);
-
-            /*titleValue = document.createTextNode("60秒计时器");
-            var setTime60s = new Date("1970/01/01 00:00:00");
-            var setTime0s = new Date("1970/01/01 00:00:00");
-            setTime60s.setSeconds(60);
-            var getSecond = (setTime60s.getTime() - setTime0s.getTime())/ 1000;
-            // alert(getSecond);
-            var test = document.createTextNode(getSecond);
-            timeContent.appendChild(test);
-
-            // 设置背景渐变       ????
-            var timeContentBgColor = timeContent.style.backgroundColor;
-            timeContentBgColor = color().slice(1);
-
-            function startTime60s() {
-                if (getSecond > 0) {
-                    getSecond--;
-                    timeContent.style.color = color();
-                }
-                timeContent.innerHTML = "";
-                test = document.createTextNode(getSecond);
-                timeContent.appendChild(test)
-            }
-
-            var timer = null;
-
-
-            // start time go
-            functionSet[0].onclick = function () {
-                /!*只有在timer为空的时候才执行函数，故当点击一次之后，此时不会再执行
-                防止时间加快，而使用
-                clearInterval(timer)
-                会连续点击之后时间处于静止状态*!/
-                // 页面显示第一次时/重置getSecond为60执行
-                if (getSecond === 60) {
-                    timer = setInterval(startTime60s, 1000);
-                }
-            };
-            // pause time go
-            functionSet[1].onclick = function () {
-                clearInterval(timer);
-                // 重置为null供继续键使用
-                timer = null;
-            };
-            // go on time
-            functionSet[2].onclick = function () {
-                if (!timer && getSecond !== 60) {
-                    timeContent.style.color = color();
-                    timer = setInterval(startTime60s, 1000);
-                }
-            };
-            // reset time
-            functionSet[3].onclick = function () {
-                clearInterval(timer);
-                getSecond = (setTime60s.getTime() - setTime0s.getTime()) / 1000;
-                timeContent.innerHTML = "";
-                timeContent.style.color = color();
-                test = document.createTextNode(getSecond);
-                timeContent.appendChild(test)
-            };*/
+        case "45秒计时器":
+            titleValue = document.createTextNode("45秒计时器");
+            setTimeNum(45);
             break;
 
         case "5分钟计时器":
@@ -417,20 +387,63 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
             setTimeNum(300);
             break;
 
-        case "30分钟计时器":
-            titleValue = document.createTextNode("30分钟计时器");
-            setTimeNum(1800);
+        case "2小时计时器":
+            titleValue = document.createTextNode("2小时计时器");
+            setTimeNum(7200);
             break;
 
         case "自定义计时器":
             titleValue = document.createTextNode("自定义计时器");
+
+
+            var subcontent = document.getElementById("subContent");
+
+            var dddiv = document.createElement("div");
+            subcontent.appendChild(dddiv);
+            var myinput = document.createTextNode("小时");
+            var myinputtag = document.createElement("label");
+            myinputtag.appendChild(myinput);
+            dddiv.appendChild(myinputtag);
+            var myinput_ = document.createElement("input");
+            myinput_.type = "number";
+            myinput_.value = 0;
+            dddiv.appendChild(myinput_);
+
+            var myinput1 = document.createTextNode("分钟");
+            var myinputtag1 = document.createElement("label");
+            myinputtag1.appendChild(myinput1);
+            dddiv.appendChild(myinputtag1);
+            var myinput_1 = document.createElement("input");
+            myinput_1.type = "number";
+            myinput_1.value = 10;
+            dddiv.appendChild(myinput_1);
+
+            var myinput2 = document.createTextNode("秒");
+            var myinputtag2 = document.createElement("label");
+            myinputtag2.appendChild(myinput2);
+            dddiv.appendChild(myinputtag2);
+            var myinput_2 = document.createElement("input");
+            myinput_2.type = "number";
+            myinput_2.value = 10;
+            dddiv.appendChild(myinput_2);
+
+            var myinput_3 = document.createElement("input");
+            myinput_3.type = "number";
+            dddiv.appendChild(myinput_3);
+            myinput_3.type = "button";
+            myinput_3.className = "myinput_3";
+            myinput_3.value = "设置之后返回再进入生效";
+
+            myinput_3.onclick = function () {
+                valueSSS = Number(myinput_.value)*3600+ Number(myinput_1.value)*60 + Number(myinput_2.value);
+            };
+            setTimeNum(valueSSS);
             break;
 
     }
     title.appendChild(titleValue);
 
 }
-
 
 
 function randomCode() {

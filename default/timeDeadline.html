@@ -5,6 +5,29 @@
     <title>倒计时</title>
 </head>
 <body>
+<p>
+    <label>小时：</label>
+    <input type="number" id="inputWindowHours" value="0">
+</p>
+<p><label>分钟：</label>
+    <input type="number" id="inputWindowMinutes" value="0">
+</p>
+<p>
+    <label id="queren">秒钟：</label>
+    <input type="number" id="inputWindowSeconds" value="0">
+</p>
 
+<script>
+    queren.onclick = function () {
+        var userTime = null;
+        alert(typeof document.getElementById("inputWindowHours").value)
+        var userHour = Number(document.getElementById("inputWindowHours").value * 3600) + Number(document.getElementById("inputWindowMinutes").value * 60) +Number(document.getElementById("inputWindowSeconds").value);
+        alert(userHour);
+
+        userTime = userHour;
+        alert(userTime);
+        alert("您设定的定时器为" + Math.floor(userTime/3600) + "小时" + Math.floor((userTime%3600)/60) + "分钟" + Math.floor(userTime%60) + "秒！");
+    }
+</script>
 </body>
 </html>

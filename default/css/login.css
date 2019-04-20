@@ -43,7 +43,8 @@ h2,
 }
 
 h1,
-h2{
+h2
+{
 	padding: 20px 0;
 	font-family: cursive,Arial;
 	font-size: 24px;
@@ -273,4 +274,17 @@ button+button {
 .subContentDisplay button+button {
 	margin-left: 30px;
 }
-
+/*自定义设置键*/
+.subContentDisplay div:last-child>*{
+	margin-top: 15px;
+	width: 120px;
+	font-size: 20px;
+	height: 30px;
+	line-height: 30px;
+}
+.subContentDisplay div:last-child :nth-child(even) {
+	margin-right: 20px;
+}
+.subContentDisplay div:last-child .myinput_3 {
+	width: 250px;
+}
