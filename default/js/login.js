@@ -145,29 +145,130 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
    },false);*/
 
 
-    var setTime60s = new Date("1970/01/01 00:00:00");
-    var setTime0s = new Date("1970/01/01 00:00:00");
+    var setTimeEnd = new Date("1970/01/01 00:00:00");
+    var setTimeStart = new Date("1970/01/01 00:00:00");
 
-    function setTimeNum() {
+    // 获得总的秒数
+    // var getSecond = (setTimeEnd.getTime() - setTimeStart.getTime())/ 1000;
+    // 设置  秒 节点
+    var secondsTimeNode = document.createElement("span");
+    var secondsTimeValue = null;
+    var getSecondsTimeValue = null;
 
-        setTime60s.setSeconds(60);
-        var getSecond = (setTime60s.getTime() - setTime0s.getTime())/ 1000;
-        // alert(getSecond);
-        var test = document.createTextNode(getSecond);
-        timeContent.appendChild(test);
+    // 设置  分 节点
+    var minutesTimeNode = document.createElement("span");
+    var minutesTimeValue = null;
+    var getMinutesTimeValue = null;
 
-        function startTime60s() {
-            if (getSecond > 0) {
-                getSecond--;
-                timeContent.style.color = color();
+    // 设置   小时  节点
+    var hoursTimeNode = document.createElement("span");
+    var hoursTimeValue = null;
+    var getHoursTimeValue = null;
+
+    // 设置  天  节点
+    var dateTimeNode = document.createElement("span");
+    var dateTimeValue = null;
+    var getDateTimeValue = null;
+
+    // 设置  年 节点
+    var yearsTimeNode = document.createElement("span");
+    var yearsTimeValue = null;
+    var getYearsTimeValue = null;
+
+    // 分号：时钟与秒钟之间
+    var getDottedValue = document.createTextNode(":");
+    var getDottedNode = document.createElement("span");
+    getDottedNode.appendChild(getDottedValue);
+
+    function setTimeNum(num) {
+        if (num < 60) {
+            setTimeEnd.setSeconds(num);
+        }
+        else if (num < 60 * 60) {
+            setTimeEnd.setSeconds(num % 60);
+            setTimeEnd.setMinutes(Math.floor(num / 60));
+        }
+        else if (num < 24 * 60 * 60) {
+            setTimeEnd.setHours(Math.floor(num / 3600));
+            setTimeEnd.setMinutes(Math.floor((num % 3600) / 60));
+            setTimeEnd.setSeconds(Math.floor(num % 60));
+        }
+        else {
+            setTimeEnd.setFullYear()
+        }
+        // 设置时间后获取时间的秒值
+        var getSecond = (setTimeEnd.getTime() - setTimeStart.getTime())/ 1000;
+
+
+        // 页面加载时初始化的时间
+        if (num < 60) {
+            // 设置  秒 值
+            getSecondsTimeValue = setTimeEnd.getSeconds();
+            if (getSecondsTimeValue < 10) {
+                getSecondsTimeValue = "0" + getSecondsTimeValue;
             }
-            timeContent.innerHTML = "";
-            test = document.createTextNode(getSecond);
-            timeContent.appendChild(test)
+            secondsTimeValue = document.createTextNode(getSecondsTimeValue + '');
+            secondsTimeNode.appendChild(secondsTimeValue);
+            timeContent.appendChild(secondsTimeNode);
+        }
+        else if (num <= 60 * 60) {
+            getSecondsTimeValue = setTimeEnd.getSeconds();
+            if (getSecondsTimeValue < 10) {
+                getSecondsTimeValue = "0" + getSecondsTimeValue;
+            }
+            secondsTimeValue = document.createTextNode(getSecondsTimeValue + '');
+            secondsTimeNode.appendChild(secondsTimeValue);
+            getMinutesTimeValue = setTimeEnd.getMinutes();
+            if (getMinutesTimeValue < 10) {
+                getMinutesTimeValue = "0" + getMinutesTimeValue;
+            }
+            minutesTimeValue = document.createTextNode(getMinutesTimeValue + '');
+            minutesTimeNode.appendChild(minutesTimeValue);
+            timeContent.appendChild(minutesTimeNode);
+            timeContent.appendChild(getDottedNode);
+            timeContent.appendChild(secondsTimeNode);
         }
 
-        var timer = null;
+        // 当页面首次加载或重置时，运行
+        var tempTTTimeNum = 0;
+        function startRunTime() {
 
+            if (getSecond > 0) {
+                secondsTimeNode.removeChild(secondsTimeValue);
+                getSecond--;
+                tempTTTimeNum++;
+                // 时间变化时，先清除原有的内容节点
+                // 之后再重新创建内容节点
+                getSecondsTimeValue--;
+                if (getSecondsTimeValue === -1) {
+                    getSecondsTimeValue = 59;
+                    getMinutesTimeValue--;
+                }
+                if (getSecondsTimeValue < 10) {
+                    getSecondsTimeValue = "0" + getSecondsTimeValue;
+                }
+                secondsTimeValue = document.createTextNode(getSecondsTimeValue + '');
+                secondsTimeNode.appendChild(secondsTimeValue);
+                // alert(secondsTimeValue)
+                secondsTimeNode.style.color = color();
+                if (59 === getSecondsTimeValue) {
+                    if (getMinutesTimeValue < 10) {
+                        getMinutesTimeValue = "0" + getMinutesTimeValue;
+                    }
+                    minutesTimeNode.removeChild(minutesTimeValue);
+                    minutesTimeValue = document.createTextNode(getMinutesTimeValue + '');
+                    minutesTimeNode.appendChild(minutesTimeValue);
+                    minutesTimeNode.style.color = color();
+                }
+                // getDottedNode.appendChild(getDottedValue);
+                getDottedNode.style.color = color();
+                timeContent.appendChild(secondsTimeNode);
+
+            }
+        }
+
+        // 设置一个定时器变量
+        var timer = null;
 
         // start time go
         functionSet[0].onclick = function () {
@@ -176,8 +277,8 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
             clearInterval(timer)
             会连续点击之后时间处于静止状态*/
             // 页面显示第一次时/重置getSecond为60执行
-            if (getSecond === 60) {
-                timer = setInterval(startTime60s, 1000);
+            if (getSecond === num) {
+                timer = setInterval(startRunTime, 1000);
             }
         };
         // pause time go
@@ -188,22 +289,37 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
         };
         // go on time
         functionSet[2].onclick = function () {
-            if (!timer && getSecond !== 60) {
-                timer = setInterval(startTime60s, 1000);
+            if (!timer && getSecond !== num) {
+                timer = setInterval(startRunTime, 1000);
             }
-
-
         };
         // reset time
         functionSet[3].onclick = function () {
             clearInterval(timer);
-            getSecond = (setTime60s.getTime() - setTime0s.getTime()) / 1000;
-            timeContent.innerHTML = "";
-            timeContent.style.color = color();
-            test = document.createTextNode(getSecond);
-            timeContent.appendChild(test)
-        };
+            getSecondsTimeValue = setTimeEnd.getSeconds();
+            // 时间变化时，先清除原有的内容节点
+            secondsTimeNode.removeChild(secondsTimeValue);
+            // 之后再重新创建内容节点
+            if (getSecondsTimeValue < 10) {
+                getSecondsTimeValue = "0" + getSecondsTimeValue;
+            }
+            secondsTimeValue = document.createTextNode(getSecondsTimeValue + '');
+            secondsTimeNode.appendChild(secondsTimeValue);
+            secondsTimeNode.style.color = color();
+            if (getMinutesTimeValue !== null) {
+                minutesTimeNode.removeChild(minutesTimeValue);
+                getMinutesTimeValue = setTimeEnd.getMinutes();
+                if (getMinutesTimeValue < 10) {
+                    getMinutesTimeValue = "0" + getMinutesTimeValue;
+                }
+                minutesTimeValue = document.createTextNode(getMinutesTimeValue + '');
+                minutesTimeNode.appendChild(minutesTimeValue);
+                minutesTimeNode.style.color = color();
+            }
 
+            // 使得只能按开始键才有效
+            getSecond = num;
+        };
     }
 
 
@@ -233,7 +349,7 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
 
         case "60秒计时器":
             titleValue = document.createTextNode("60秒计时器");
-            setTimeNum();
+            setTimeNum(60);
 
             /*titleValue = document.createTextNode("60秒计时器");
             var setTime60s = new Date("1970/01/01 00:00:00");
@@ -298,10 +414,12 @@ function subTitleTimeContent(arrSubTitleContent,selectNode) {
 
         case "5分钟计时器":
             titleValue = document.createTextNode("5分钟计时器");
+            setTimeNum(300);
             break;
 
         case "30分钟计时器":
             titleValue = document.createTextNode("30分钟计时器");
+            setTimeNum(1800);
             break;
 
         case "自定义计时器":

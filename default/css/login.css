@@ -246,7 +246,7 @@ button+button {
 /*时间显示内容*/
 
 .subContentDisplay .timeContent {
-	width: 700px;
+	width: fit-content;
 	height: 300px;
 	line-height: 300px;
 	background: #279f63b5;
